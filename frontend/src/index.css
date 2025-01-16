@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Glow effect for borders */
+.glow-border {
+    border: 2px solid rgba(128, 90, 213, 0.5); /* Purple glow */
+    box-shadow: 0 0 20px rgba(128, 90, 213, 0.8), 0 0 40px rgba(168, 85, 247, 0.6);
+  }
+  

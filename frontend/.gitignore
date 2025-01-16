@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+.yarn/
+
+# Environment file
+.env
+.env.local
+.env.development
+.env.production
+
+# Build files
+/build/
+.vite/
+
+# VS Code
+.idea/
+.vscode/
+
+# Output from Vite
+dist/
+
+# Dependencies lock files
+yarn.lock
+npm-debug.log
+
+# OS files
+.DS_Store
+Thumbs.db
