@@ -1,0 +1,38 @@
+# Node.js Modules
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Environment files
+.env
+.env.*
+
+# Build folder
+build/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+.env.local
+
+# Logs
+logs/
+
+# Redis
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# MongoDB files
+mongodb-compass/
+mongo.lock
+*.seed.js
+
+# IDE files
+.idea/
+.vscode/
+
+# All built files
+/build/
+/dist/
