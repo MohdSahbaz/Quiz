@@ -13,7 +13,7 @@ const Home = () => {
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        Greek Automata
+        Quiz Application
       </motion.h1>
 
       {/* Subheading */}
