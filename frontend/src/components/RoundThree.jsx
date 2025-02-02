@@ -13,7 +13,9 @@ const RoundThree = () => {
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        const response = await axios.get(import.meta.env.VITE_API_URL_THREE);
+        const response = await axios.get(
+          `${import.meta.env.VITE_API_URL}/roundthree`
+        );
         setQuestions(response.data.questions);
         setIsLoading(false);
       } catch (err) {

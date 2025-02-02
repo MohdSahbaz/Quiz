@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
-// const connectDB = require("./config/db");
+const connectDB = require("./config/db");
 const quizRouter = require("./routes/quizRoutes");
 
 dotenv.config();
@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 // Connect to MongoDB
-// connectDB();
+connectDB();
 
 // Routes
 app.use("/quiz", quizRouter);

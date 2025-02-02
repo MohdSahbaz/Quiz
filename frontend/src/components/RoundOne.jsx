@@ -16,8 +16,10 @@ const RoundOne = () => {
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        const response = await axios.get(import.meta.env.VITE_API_URL_ONE);
-        setQuestions(response.data.questions);
+        const response = await axios.get(
+          `${import.meta.env.VITE_API_URL}/roundone`
+        );
+        setQuestions(response.data.questions || []);
         setIsLoading(false);
       } catch (err) {
         setError(err.message || "Failed to fetch questions");
@@ -54,47 +56,41 @@ const RoundOne = () => {
   };
 
   const handleFinishQuiz = () => {
-    if (score >= 10) {
-      // User can proceed to the next round
-      return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-900 to-black text-white">
-          <div className="text-center">
-            <h1 className="text-4xl font-bold mb-6 animate-bounce">
-              Round One Completed!
-            </h1>
-            <p className="text-2xl">
-              Your Score: {score} / {questions.length}
-            </p>
-            <button
-              className="mt-6 px-6 py-3 bg-purple-500 text-white rounded-md hover:bg-purple-600 transition duration-300"
-              onClick={() => navigate("/rlopki2op")}
-            >
-              Go to Next Round
-            </button>
-          </div>
+    return score >= 10 ? (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-900 to-black text-white">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold mb-6 animate-bounce">
+            Round One Completed!
+          </h1>
+          <p className="text-2xl">
+            Your Score: {score} / {questions.length}
+          </p>
+          <button
+            className="mt-6 px-6 py-3 bg-purple-500 text-white rounded-md hover:bg-purple-600 transition duration-300"
+            onClick={() => navigate("/rlopki2op")}
+          >
+            Go to Next Round
+          </button>
         </div>
-      );
-    } else {
-      // Show failure message and a button to go back to the homepage
-      return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-900 to-black text-white">
-          <div className="text-center">
-            <h1 className="text-4xl font-bold mb-6 animate-bounce text-red-500">
-              Quiz Failed!
-            </h1>
-            <p className="text-2xl">
-              Your Score: {score} / {questions.length}
-            </p>
-            <button
-              className="mt-6 px-6 py-3 bg-red-500 text-white rounded-md hover:bg-red-600 transition duration-300"
-              onClick={() => navigate("/")}
-            >
-              Go to Home
-            </button>
-          </div>
+      </div>
+    ) : (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-900 to-black text-white">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold mb-6 animate-bounce text-red-500">
+            Quiz Failed!
+          </h1>
+          <p className="text-2xl">
+            Your Score: {score} / {questions.length}
+          </p>
+          <button
+            className="mt-6 px-6 py-3 bg-red-500 text-white rounded-md hover:bg-red-600 transition duration-300"
+            onClick={() => navigate("/")}
+          >
+            Go to Home
+          </button>
         </div>
-      );
-    }
+      </div>
+    );
   };
 
   if (currentQuestionIndex >= questions.length && !isLoading) {
@@ -107,7 +103,7 @@ const RoundOne = () => {
         <p className="text-2xl animate-pulse">Loading questions...</p>
       ) : error ? (
         <p className="text-red-500 text-xl">{error}</p>
-      ) : questions[currentQuestionIndex] ? (
+      ) : questions.length > 0 ? (
         <div className="w-full max-w-3xl bg-gray-800 rounded-lg shadow-lg p-6 transform transition-all duration-500">
           <h1 className="mb-3 text-center text-xl">Round One</h1>
           <div className="relative w-full bg-gray-700 rounded-full h-4 mb-4">
@@ -127,10 +123,10 @@ const RoundOne = () => {
             Question {currentQuestionIndex + 1} / {questions.length}
           </h1>
           <p className="text-xl mb-6">
-            {questions[currentQuestionIndex].question}
+            {questions[currentQuestionIndex]?.question}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {questions[currentQuestionIndex].options.map((option, index) => (
+            {questions[currentQuestionIndex]?.options?.map((option, index) => (
               <button
                 key={index}
                 onClick={() => handleOptionClick(option)}

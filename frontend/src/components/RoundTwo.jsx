@@ -16,7 +16,9 @@ const RoundTwo = () => {
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        const response = await axios.get(import.meta.env.VITE_API_URL_TWO);
+        const response = await axios.get(
+          `${import.meta.env.VITE_API_URL}/roundtwo`
+        );
         setQuestions(response.data.questions);
         setIsLoading(false);
       } catch (err) {

@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import RoundOne from "./components/RoundOne";
 import RoundTwo from "./components/RoundTwo";
 import RoundThree from "./components/RoundThree";
+import AdminHome from "./components/admin/Home";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
   {
     path: "/rsdjk3ko",
     element: <RoundThree />,
+  },
+  {
+    path: "/admin",
+    element: <AdminHome />,
   },
 ]);
 
