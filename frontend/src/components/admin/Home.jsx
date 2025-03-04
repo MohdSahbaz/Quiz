@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const AdminHome = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="p-5 min-h-screen bg-gradient-to-bl from-gray-900 via-black to-gray-800 flex flex-col items-center justify-center px-6 text-white relative">
       {/* Animated Header Section */}
@@ -30,7 +33,10 @@ const AdminHome = () => {
         whileTap={{ scale: 0.95 }}
         className="mb-10"
       >
-        <button className="px-8 py-4 font-bold text-lg bg-gradient-to-r from-blue-500 to-green-500 text-white rounded-full shadow-lg hover:shadow-green-500/50 transform transition-transform">
+        <button
+          onClick={() => navigate("/rounds")}
+          className="px-8 py-4 font-bold text-lg bg-gradient-to-r from-blue-500 to-green-500 text-white rounded-full shadow-lg hover:shadow-green-500/50 transform transition-transform"
+        >
           View Dashboard
         </button>
       </motion.div>
@@ -89,7 +95,7 @@ const AdminHome = () => {
         transition={{ delay: 1.5 }}
       >
         Built with ❤️ by{" "}
-        <span className="font-semibold text-blue-400">Mohd Sahbaz</span>
+        <span className="font-semibold text-blue-400">Krishna Giri</span>
       </motion.footer>
     </div>
   );

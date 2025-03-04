@@ -96,7 +96,7 @@ const Home = () => {
         transition={{ delay: 1.5 }}
       >
         Created with ❤️ by{" "}
-        <span className="font-semibold text-purple-400">Mohd Sahbaz</span>
+        <span className="font-semibold text-purple-400">Krishna Giri</span>
       </motion.footer>
     </div>
   );
