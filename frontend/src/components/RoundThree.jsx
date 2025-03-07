@@ -70,6 +70,12 @@ const RoundThree = () => {
     setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
   };
 
+  const handleSetScore = () => {
+    const totalScore = localStorage.getItem("totalScore" || "0", 10);
+    const userId = localStorage.getItem("userId");
+    console.log("Total Score:", totalScore);
+  };
+
   if (currentQuestionIndex >= questions.length && !isLoading) {
     if (score === 15) {
       // User gets 15 marks, show winner message and home button
@@ -104,7 +110,10 @@ const RoundThree = () => {
             </p>
             <button
               className="mt-6 px-6 py-3 bg-purple-500 text-white rounded-md hover:bg-purple-600 transition duration-300"
-              onClick={() => window.location.reload()}
+              onClick={() => {
+                window.location.reload();
+                handleSetScore();
+              }}
             >
               Retry Quiz
             </button>

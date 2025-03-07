@@ -66,6 +66,12 @@ const RoundTwo = () => {
     setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
   };
 
+  const handleSetScore = () => {
+    const totalScore = localStorage.getItem("totalScore" || "0", 10);
+    const userId = localStorage.getItem("userId");
+    console.log("Total Score:", totalScore);
+  };
+
   const handleFinishQuiz = () => {
     if (score >= 12) {
       // User can proceed to the third round
@@ -100,7 +106,10 @@ const RoundTwo = () => {
             </p>
             <button
               className="mt-6 px-6 py-3 bg-red-500 text-white rounded-md hover:bg-red-600 transition duration-300"
-              onClick={() => navigate("/")}
+              onClick={() => {
+                navigate("/");
+                handleSetScore();
+              }}
             >
               Go to Home
             </button>
