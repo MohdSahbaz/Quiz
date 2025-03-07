@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+const userApiUrl = import.meta.env.VITE_API_USER_AUTH;
 
 const RoundThree = () => {
   const [questions, setQuestions] = useState([]);
@@ -70,10 +71,23 @@ const RoundThree = () => {
     setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
   };
 
-  const handleSetScore = () => {
-    const totalScore = localStorage.getItem("totalScore" || "0", 10);
+  const handleSetScore = async () => {
+    const totalScore = localStorage.getItem("totalScore") || "0";
     const userId = localStorage.getItem("userId");
-    console.log("Total Score:", totalScore);
+
+    try {
+      const response = await axios.put(`${userApiUrl}/update-score`, {
+        userId,
+        totalScore: parseInt(totalScore, 10),
+      });
+
+      console.log("Response:", response.data);
+    } catch (error) {
+      console.error(
+        "Error updating score:",
+        error.response?.data || error.message
+      );
+    }
   };
 
   if (currentQuestionIndex >= questions.length && !isLoading) {
