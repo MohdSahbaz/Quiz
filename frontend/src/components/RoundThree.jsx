@@ -45,11 +45,29 @@ const RoundThree = () => {
       questions[currentQuestionIndex] &&
       selectedOption === questions[currentQuestionIndex].correctAnswer
     ) {
-      setScore(score + 1);
+      setScore((prevScore) => {
+        const newScore = prevScore + 1;
+
+        // Update roundThree score
+        localStorage.setItem("roundThree", newScore);
+
+        // Get previous total score and increment it
+        const previousTotalScore = parseInt(
+          localStorage.getItem("totalScore") || "0",
+          10
+        );
+        const updatedTotalScore = previousTotalScore + 1;
+
+        // Store updated total score
+        localStorage.setItem("totalScore", updatedTotalScore);
+
+        return newScore;
+      });
     }
+
     setSelectedOption(null);
     setTimer(15);
-    setCurrentQuestionIndex(currentQuestionIndex + 1);
+    setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
   };
 
   if (currentQuestionIndex >= questions.length && !isLoading) {

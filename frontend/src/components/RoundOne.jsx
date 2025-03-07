@@ -48,11 +48,22 @@ const RoundOne = () => {
       questions[currentQuestionIndex] &&
       selectedOption === questions[currentQuestionIndex].correctAnswer
     ) {
-      setScore(score + 1);
+      const roundOneScore =
+        parseInt(localStorage.getItem("roundOne") || "0", 10) + 1;
+      const totalScore =
+        parseInt(localStorage.getItem("totalScore") || "0", 10) + 1;
+
+      // Update scores in localStorage
+      localStorage.setItem("roundOne", roundOneScore);
+      localStorage.setItem("totalScore", totalScore);
+
+      // Update state
+      setScore(roundOneScore);
     }
+
     setSelectedOption(null);
     setTimer(15);
-    setCurrentQuestionIndex(currentQuestionIndex + 1);
+    setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
   };
 
   const handleFinishQuiz = () => {

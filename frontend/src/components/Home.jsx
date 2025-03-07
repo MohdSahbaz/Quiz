@@ -69,7 +69,13 @@ const Home = () => {
         className="mb-10"
       >
         <button
-          onClick={() => navigate("/rlopop1kopo")}
+          onClick={() => {
+            navigate("/rlopop1kopo");
+            localStorage.setItem("totalScore", 0);
+            localStorage.setItem("roundOne", 0);
+            localStorage.setItem("roundTwo", 0);
+            localStorage.setItem("roundThree", 0);
+          }}
           className="px-8 py-4 font-bold text-lg bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full shadow-lg hover:shadow-pink-500/50 transform transition-transform"
         >
           Start Quiz
