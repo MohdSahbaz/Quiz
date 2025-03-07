@@ -4,8 +4,43 @@ import { useNavigate } from "react-router-dom";
 const Home = () => {
   const navigate = useNavigate();
 
+  const handleLogout = () => {
+    localStorage.removeItem("userId");
+    localStorage.removeItem("userName");
+    localStorage.removeItem("isUserAuthenticate");
+    navigate("/login");
+  };
+
   return (
     <div className="p-5 min-h-screen bg-gradient-to-bl from-gray-900 via-black to-gray-800 flex flex-col items-center justify-center px-6 text-white relative">
+      {/* Top Navigation */}
+      <div className="absolute top-5 right-5 flex gap-4">
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          className="px-4 py-2 bg-gray-700 hover:bg-purple-500 rounded-lg text-white text-sm font-semibold transition"
+          onClick={() => navigate("/profile")}
+        >
+          Profile
+        </motion.button>
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          className="px-4 py-2 bg-gray-700 hover:bg-blue-500 rounded-lg text-white text-sm font-semibold transition"
+          onClick={() => navigate("/leaderboard")}
+        >
+          Leaderboard
+        </motion.button>
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          className="px-4 py-2 bg-red-600 hover:bg-red-500 rounded-lg text-white text-sm font-semibold transition"
+          onClick={handleLogout}
+        >
+          Logout
+        </motion.button>
+      </div>
+
       {/* Animated Header Section */}
       <motion.h1
         className="text-6xl md:text-7xl font-extrabold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-pink-500 to-red-500"
@@ -27,7 +62,7 @@ const Home = () => {
         test your programming skills, and rise to the top. Are you ready?
       </motion.p>
 
-      {/* Glowing Button */}
+      {/* Start Quiz Button */}
       <motion.div
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}

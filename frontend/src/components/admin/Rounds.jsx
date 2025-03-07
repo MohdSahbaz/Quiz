@@ -52,6 +52,18 @@ const Rounds = () => {
             Round 3
           </button>
         </motion.div>
+
+        {/* Users */}
+        <motion.div
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => navigate("/users")}
+          className="bg-gray-800 p-6 cursor-pointer rounded-lg shadow-lg border border-gray-700 hover:shadow-emerald-500/50 transform transition-all"
+        >
+          <button className="text-xl font-semibold text-emerald-400 block text-center">
+            Users
+          </button>
+        </motion.div>
       </div>
 
       {/* Footer */}
