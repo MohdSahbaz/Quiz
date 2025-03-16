@@ -2,7 +2,6 @@ const RoundOne = require("../models/RoundOne");
 const RoundTwo = require("../models/RoundTwo");
 const RoundThree = require("../models/RoundThree");
 
-// use if connected to database
 const roundOne = async (req, res) => {
   try {
     const questionsData = await RoundOne.find();

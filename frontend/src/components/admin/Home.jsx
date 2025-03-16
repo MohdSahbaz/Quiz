@@ -34,7 +34,7 @@ const AdminHome = () => {
         className="mb-10"
       >
         <button
-          onClick={() => navigate("/rounds")}
+          onClick={() => navigate("rounds")}
           className="px-8 py-4 font-bold text-lg bg-gradient-to-r from-blue-500 to-green-500 text-white rounded-full shadow-lg hover:shadow-green-500/50 transform transition-transform"
         >
           View Dashboard
@@ -68,9 +68,7 @@ const AdminHome = () => {
           <h3 className="text-xl font-semibold mb-2 text-green-400">
             Analytics
           </h3>
-          <p className="text-gray-400">
-            Monitor user progress and quiz statistics in real time.
-          </p>
+          <p className="text-gray-400">Monitor quiz statistics in real time.</p>
         </motion.div>
 
         {/* Card 3 */}
@@ -81,9 +79,7 @@ const AdminHome = () => {
           transition={{ delay: 1.2, duration: 0.6 }}
         >
           <h3 className="text-xl font-semibold mb-2 text-teal-400">Settings</h3>
-          <p className="text-gray-400">
-            Customize platform settings and manage user access seamlessly.
-          </p>
+          <p className="text-gray-400">Customize platform settings</p>
         </motion.div>
       </div>
 

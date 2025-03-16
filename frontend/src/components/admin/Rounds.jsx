@@ -12,7 +12,7 @@ const Rounds = () => {
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        Quiz Rounds
+        Handle Quiz Rounds
       </motion.h1>
 
       {/* Links Section */}
@@ -21,7 +21,7 @@ const Rounds = () => {
         <motion.div
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
-          onClick={() => navigate("/round-1")}
+          onClick={() => navigate("/admin/round-1")}
           className="bg-gray-800 cursor-pointer p-6 rounded-lg shadow-lg border border-gray-700 hover:shadow-blue-500/50 transform transition-all"
         >
           <button className="text-xl font-semibold text-blue-400 block text-center">
@@ -33,7 +33,7 @@ const Rounds = () => {
         <motion.div
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
-          onClick={() => navigate("/round-2")}
+          onClick={() => navigate("/admin/round-2")}
           className="bg-gray-800 cursor-pointer p-6 rounded-lg shadow-lg border border-gray-700 hover:shadow-green-500/50 transform transition-all"
         >
           <button className="text-xl font-semibold text-green-400 block text-center">
@@ -45,23 +45,11 @@ const Rounds = () => {
         <motion.div
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
-          onClick={() => navigate("/round-3")}
+          onClick={() => navigate("/admin/round-3")}
           className="bg-gray-800 p-6 cursor-pointer rounded-lg shadow-lg border border-gray-700 hover:shadow-teal-500/50 transform transition-all"
         >
           <button className="text-xl font-semibold text-teal-400 block text-center">
             Round 3
-          </button>
-        </motion.div>
-
-        {/* Users */}
-        <motion.div
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => navigate("/users")}
-          className="bg-gray-800 p-6 cursor-pointer rounded-lg shadow-lg border border-gray-700 hover:shadow-emerald-500/50 transform transition-all"
-        >
-          <button className="text-xl font-semibold text-emerald-400 block text-center">
-            Users
           </button>
         </motion.div>
       </div>

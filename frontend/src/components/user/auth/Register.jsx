@@ -40,7 +40,7 @@ const UserAuth = () => {
   return (
     <div className="p-5 min-h-screen bg-gradient-to-bl from-gray-900 via-black to-gray-800 flex flex-col items-center justify-center px-6 text-white">
       <motion.h1
-        className="text-5xl md:text-6xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-pink-500 to-red-500"
+        className="text-5xl md:text-6xl font-extrabold mb-6 bg-clip-text bg-gradient-to-r from-purple-500 via-pink-500 to-red-500"
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1 }}
@@ -128,4 +128,3 @@ const UserAuth = () => {
 };
 
 export default UserAuth;
-  
